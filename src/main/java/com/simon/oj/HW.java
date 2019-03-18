@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HW {
-    @RequestMapping("/fuck")
+    @RequestMapping("/hi")
     public String say(){
-        return "fuck you";
+        return "hi bro";
     }
 }
