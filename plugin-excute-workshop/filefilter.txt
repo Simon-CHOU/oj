@@ -1,0 +1,2 @@
+~RULE_5_3_A_provide_doxygen_function_comment_on_function_in_impl
+
