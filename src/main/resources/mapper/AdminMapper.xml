@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.simon.oj.dao.AdminMapper">
+  <resultMap id="BaseResultMap" type="com.simon.oj.pojo.Admin">
+    <id column="idadmin" jdbcType="VARCHAR" property="idadmin" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="permission" jdbcType="INTEGER" property="permission" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from admin
+    where idadmin = #{idadmin,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="idadmin" keyProperty="idadmin" parameterType="com.simon.oj.pojo.Admin" useGeneratedKeys="true">
+    insert into admin (password, permission)
+    values (#{password,jdbcType=VARCHAR}, #{permission,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.simon.oj.pojo.Admin">
+    update admin
+    set password = #{password,jdbcType=VARCHAR},
+      permission = #{permission,jdbcType=INTEGER}
+    where idadmin = #{idadmin,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select idadmin, password, permission
+    from admin
+    where idadmin = #{idadmin,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select idadmin, password, permission
+    from admin
+    order by idadmin desc
+  </select>
+</mapper>

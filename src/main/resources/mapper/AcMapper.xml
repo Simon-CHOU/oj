@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.simon.oj.dao.AcMapper">
+  <resultMap id="BaseResultMap" type="com.simon.oj.pojo.Ac">
+    <id column="idassignment" jdbcType="INTEGER" property="idassignment" />
+    <id column="idclass" jdbcType="INTEGER" property="idclass" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from ac
+    where idassignment = #{idassignment,jdbcType=INTEGER}
+      and idclass = #{idclass,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.simon.oj.pojo.Ac">
+    insert into ac (idassignment, idclass)
+    values (#{idassignment,jdbcType=INTEGER}, #{idclass,jdbcType=INTEGER})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select idassignment, idclass
+    from ac
+  </select>
+</mapper>

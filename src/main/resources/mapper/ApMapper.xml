@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.simon.oj.dao.ApMapper">
+  <resultMap id="BaseResultMap" type="com.simon.oj.pojo.Ap">
+    <id column="idassignment" jdbcType="INTEGER" property="idassignment" />
+    <id column="idproblem" jdbcType="INTEGER" property="idproblem" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from ap
+    where idassignment = #{idassignment,jdbcType=INTEGER}
+      and idproblem = #{idproblem,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.simon.oj.pojo.Ap">
+    insert into ap (idassignment, idproblem)
+    values (#{idassignment,jdbcType=INTEGER}, #{idproblem,jdbcType=INTEGER})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select idassignment, idproblem
+    from ap
+  </select>
+</mapper>

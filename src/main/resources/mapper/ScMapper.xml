@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.simon.oj.dao.ScMapper">
+  <resultMap id="BaseResultMap" type="com.simon.oj.pojo.Sc">
+    <id column="idclass" jdbcType="INTEGER" property="idclass" />
+    <id column="idstudent" jdbcType="VARCHAR" property="idstudent" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from sc
+    where idclass = #{idclass,jdbcType=INTEGER}
+      and idstudent = #{idstudent,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.simon.oj.pojo.Sc">
+    insert into sc (idclass, idstudent)
+    values (#{idclass,jdbcType=INTEGER}, #{idstudent,jdbcType=VARCHAR})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select idclass, idstudent
+    from sc
+  </select>
+</mapper>
