@@ -39,7 +39,7 @@ public class AdminServiceImpl implements IAdminService {
     }
 
     @Override
-    public Integer add(String id, String password)throws DataAccessException {
+    public Integer add(String id, String password) throws DataAccessException {
         Admin temp = new Admin();
         temp.setIdadmin(id);
         temp.setPassword(password);

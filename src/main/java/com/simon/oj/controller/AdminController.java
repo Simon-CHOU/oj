@@ -59,17 +59,21 @@ public class AdminController {
     @PostMapping
     public Result addAdmin(@RequestParam(value = "id") String id,
                            @RequestParam(value = "password") String password) {
-        int t = 0;
+        Result result = new Result();
+
         try {
-            t = adminService.add(id, password);//permission admin:3,teacher:2,student:1，数据库默认值
+            int t = adminService.add(id, password);//permission admin:3,teacher:2,student:1，数据库默认值
+            if (t != 0) {
+                 result.setResultCode(ResultCode.SUCCESS);
+            } else {
+                 result.setResultCode(ResultCode.DATA_INSERT_WRONG);//这个判断似乎没啥用
+            }
         } catch (DataAccessException e) {
             System.out.println(e.toString());
+            result.setResultCode(ResultCode.DATA_INSERT_WRONG);
         }
-        if (t != 0) {
-            return Result.success();
-        } else {
-            return Result.failure(ResultCode.DATA_INSERT_WRONG);
-        }
-
+        //如果有三个以上的分支，就先new Result，精简return
+        //如果只有成或败两种分支，则不必
+        return result;
     }
 }
