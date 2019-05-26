@@ -38,15 +38,14 @@
         <!--<table tableName="t_user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false"-->
                <!--enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
         <table schema="oj" tableName="admin">
-            <property name="selectAllOrderByClause" value="idadmin desc"/>
-            <generatedKey column="idadmin" sqlStatement="JDBC" identity="true"/>
+            <property name="selectAllOrderByClause" value="idadmin asc"/>
         </table>
-        <table schema="oj" tableName="sc">
-        </table>
-        <table schema="oj" tableName="ac">
-        </table>
-        <table schema="oj" tableName="ap">
-        </table>
+        <!--<table schema="oj" tableName="sc">-->
+        <!--</table>-->
+        <!--<table schema="oj" tableName="ac">-->
+        <!--</table>-->
+        <!--<table schema="oj" tableName="ap">-->
+        <!--</table>-->
         <!--以上的使用MyBatis3Simple生成无Example的Dao-->
         <!--以下的使用MyBatis3生成有Example的Dao-->
         <!--<table schema="oj" tableName="problem" >-->
