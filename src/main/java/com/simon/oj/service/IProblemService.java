@@ -5,9 +5,9 @@ import com.simon.oj.pojo.Problem;
 import java.util.List;
 
 public interface IProblemService {
-    int add(Problem problem);
-    int update(Problem problem);
-    int delete(int id);
-    Problem findProblemById();
+    Problem findProblemById(Integer id);
     List<Problem> findProblemList();
+    Integer add(Problem problem);//字段太多所以传对象
+    Integer update(Problem problem);
+    Integer delete(Integer id);
 }
