@@ -44,6 +44,6 @@ public class AdminServiceImpl implements IAdminService {
         temp.setIdadmin(id);
         temp.setPassword(password);
         temp.setPermission(3);
-        return adminMapper.insert(temp);//处理用户名重复的异常
+        return adminMapper.insert(temp);//需要处理用户名重复的异常
     }
 }

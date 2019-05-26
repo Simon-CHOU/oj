@@ -1,5 +1,7 @@
 package com.simon.oj.controller;
 
+import com.simon.oj.common.Result;
+import com.simon.oj.common.ResultCode;
 import com.simon.oj.pojo.Admin;
 import com.simon.oj.service.impl.AdminServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,40 +18,46 @@ public class AdminController {
 
     //    @RequestMapping(value = "/list", method = RequestMethod.GET)
     @GetMapping(value = "/list")
-    public List<Admin> getAdmins() {
-        return adminService.findAdminList();
+    public Result getAdmins() {
+        return Result.success(adminService.findAdminList());
     }
 
     @GetMapping
-    public Admin getAdminById(@RequestParam("id") String id) {
-        return adminService.findAdminById(id);
+    public Result getAdminById(@RequestParam("id") String id) {
+        Admin admin = adminService.findAdminById(id);
+        if(admin!=null){
+            return Result.success(admin);
+        }else {
+            return Result.failure(ResultCode.RESULE_DATA_NONE);
+        }
+
     }
 
     @PutMapping
-    public String updateAdmin(@RequestParam("id") String id,
+    public Result updateAdmin(@RequestParam("id") String id,
                               @RequestParam(value = "password", required = true) String password) {
         int t = adminService.update(id, password);//管理员是没有username的
         if (t != 0) {
-            return "success";
+            return Result.success();
         } else {
-            return "fail";
+            return Result.failure(ResultCode.DATA_UPDATE_WRONG);
         }
 
     }
 
     @DeleteMapping
-    public String deleteAdmin(@RequestParam(value = "id") String id) {
+    public Result deleteAdmin(@RequestParam(value = "id") String id) {
         int t = adminService.delete(id);
         if (t != 0) {
-            return "success";
+            return Result.success();
         } else {
-            return "fail";
+            return Result.failure(ResultCode.DATA_DELETE_WRONG);
         }
 
     }
 
     @PostMapping
-    public String addAdmin(@RequestParam(value = "id") String id,
+    public Result addAdmin(@RequestParam(value = "id") String id,
                            @RequestParam(value = "password") String password) {
         int t = 0;
         try {
@@ -58,9 +66,9 @@ public class AdminController {
             System.out.println(e.toString());
         }
         if (t != 0) {
-            return "success";
+            return Result.success();
         } else {
-            return "fail";
+            return Result.failure(ResultCode.DATA_INSERT_WRONG);
         }
 
     }
