@@ -32,12 +32,14 @@ public enum ResultCode {
     SYSTEM_INNER_ERROR(40001, "系统繁忙，请稍后重试"),
 
     /* 数据错误：50001-599999 */
-    RESULE_DATA_NONE(50001, "数据未找到"),//查询报错
+    RESULE_DATA_NONE(50001, "数据未找到"),//查询正确，只是结果为空
     DATA_IS_WRONG(50002, "数据有误"),
     DATA_ALREADY_EXISTED(50003, "数据已存在"),
-    DATA_INSERT_WRONG(50004,"数据插入错误"),//增删改粗略报错如下
-    DATA_DELETE_WRONG(50006,"数据删除错误"),
-    DATA_UPDATE_WRONG(50006,"数据更新错误"),
+    DATA_INSERT_WRONG(50004,"数据插入异常"),//增删改查粗略报错如下
+    DATA_DELETE_WRONG(50006,"数据删除异常"),
+    DATA_UPDATE_WRONG(50006,"数据更新异常"),
+    DATA_RETRIEVE_WRONG(5007,"数据查询异常"),
+    DATA_DELETE_NOT_FOUND(50008,"要删除的数据不存在"),
 
     /* 接口错误：60001-69999 */
     INTERFACE_INNER_INVOKE_ERROR(60001, "内部系统接口调用异常"),
