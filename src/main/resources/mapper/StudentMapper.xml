@@ -101,17 +101,20 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" keyColumn="idstudent" keyProperty="idstudent" parameterType="com.simon.oj.pojo.Student" useGeneratedKeys="true">
-    insert into student (name, nature_class, email, 
-      phone, password, permission
-      )
-    values (#{name,jdbcType=VARCHAR}, #{natureClass,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
-      #{phone,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{permission,jdbcType=INTEGER}
-      )
+  <insert id="insert" parameterType="com.simon.oj.pojo.Student">
+    insert into student (idstudent, name, nature_class, 
+      email, phone, password, 
+      permission)
+    values (#{idstudent,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{natureClass,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{permission,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" keyColumn="idstudent" keyProperty="idstudent" parameterType="com.simon.oj.pojo.Student" useGeneratedKeys="true">
+  <insert id="insertSelective" parameterType="com.simon.oj.pojo.Student">
     insert into student
     <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="idstudent != null">
+        idstudent,
+      </if>
       <if test="name != null">
         name,
       </if>
@@ -132,6 +135,9 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="idstudent != null">
+        #{idstudent,jdbcType=VARCHAR},
+      </if>
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
       </if>

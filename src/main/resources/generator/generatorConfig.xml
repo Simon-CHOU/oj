@@ -6,9 +6,9 @@
     <!-- 数据库驱动:选择你的本地硬盘上面的数据库驱动包-->
     <classPathEntry location="D:\a_learn\learn-sql\mysql-connector-java-5.1.47\mysql-connector-java-5.1.47-bin.jar"/>
     <!--为了有selectAll方法，使用了MyBatis3Simple-->
-    <context id="DB2Tables"  targetRuntime="MyBatis3Simple">
+    <!--<context id="DB2Tables"  targetRuntime="MyBatis3Simple">-->
     <!--使用复杂的查询-->
-    <!--<context id="DB2Tables" defaultModelType="conditional"  targetRuntime="MyBatis3">-->
+    <context id="DB2Tables" defaultModelType="conditional"  targetRuntime="MyBatis3">
         <commentGenerator>
             <property name="suppressDate" value="true"/>
             <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
@@ -37,9 +37,9 @@
         <!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名-->
         <!--<table tableName="t_user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false"-->
                <!--enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-        <table schema="oj" tableName="admin">
-            <property name="selectAllOrderByClause" value="idadmin asc"/>
-        </table>
+        <!--<table schema="oj" tableName="admin">-->
+            <!--<property name="selectAllOrderByClause" value="idadmin asc"/>-->
+        <!--</table>-->
         <!--<table schema="oj" tableName="sc">-->
         <!--</table>-->
         <!--<table schema="oj" tableName="ac">-->
@@ -54,12 +54,11 @@
         <!--<table schema="oj" tableName="class" >-->
             <!--<generatedKey column="idclass" sqlStatement="JDBC" identity="true"/>-->
         <!--</table>-->
-        <!--<table schema="oj" tableName="teacher" >-->
-            <!--<generatedKey column="idteacher" sqlStatement="JDBC" identity="true"/>-->
-        <!--</table>-->
-        <!--<table schema="oj" tableName="student" >-->
-            <!--<generatedKey column="idstudent" sqlStatement="JDBC" identity="true"/>-->
-        <!--</table>-->
+        <table schema="oj" tableName="teacher" >
+        </table>
+        <table schema="oj" tableName="student" >
+        </table>
+        <!--注意教师和学生的id是字符串，不递增，无generatedKey-->
         <!--<table schema="oj" tableName="assignment" >-->
             <!--<generatedKey column="idassignment" sqlStatement="JDBC" identity="true"/>-->
         <!--</table>-->
