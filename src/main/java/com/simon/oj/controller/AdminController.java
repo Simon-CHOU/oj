@@ -54,12 +54,26 @@ public class AdminController {
 
     @DeleteMapping
     public Result deleteAdmin(@RequestParam(value = "id") String id) {
-        int t = adminService.delete(id);
-        if (t != 0) {
-            return Result.success();
-        } else {
-            return Result.failure(ResultCode.DATA_DELETE_WRONG);
+        //验证id存在
+        List<Admin> alist = adminService.findAdminList();
+        int flag =0;
+        for (Admin ai:alist
+        ) {
+            if(id.equals(ai.getIdadmin())){flag =1;};
         }
+        if(flag==0){
+            return Result.failure(ResultCode.DATA_DELETE_NOT_FOUND);//要删除的数据不存在
+        }
+
+        Result result = new Result();
+        try {
+            int t = adminService.delete(id);
+            result.setResultCode(ResultCode.SUCCESS);
+        } catch (Exception e) {
+            System.out.println(e);
+            result.setResultCode(ResultCode.DATA_DELETE_WRONG);
+        }
+        return result;
 
     }
 

@@ -78,6 +78,17 @@ public class ProblemController {
 
     @PutMapping
     public Result updateProblem(@RequestBody Problem problem) {
+        //验证id存在
+        List<Problem> plist = problemService.findProblemList();
+        int flag =0;
+        for (Problem pi:plist
+        ) {
+            if(problem.getIdproblem()==pi.getIdproblem()){flag =1;};
+        }
+        if(flag==0){
+            return Result.failure(ResultCode.DATA_INSERT_NOT_FOUND);//要删除的数据不存在
+        }
+
         Result result = new Result();
         try {
             int t = problemService.update(problem);

@@ -38,8 +38,9 @@ public enum ResultCode {
     DATA_INSERT_WRONG(50004,"数据插入异常"),//增删改查粗略报错如下
     DATA_DELETE_WRONG(50006,"数据删除异常"),
     DATA_UPDATE_WRONG(50006,"数据更新异常"),
-    DATA_RETRIEVE_WRONG(5007,"数据查询异常"),
+    DATA_RETRIEVE_WRONG(50007,"数据查询异常"),
     DATA_DELETE_NOT_FOUND(50008,"要删除的数据不存在"),
+    DATA_INSERT_NOT_FOUND(50009,"要修改的数据不存在"),
 
     /* 接口错误：60001-69999 */
     INTERFACE_INNER_INVOKE_ERROR(60001, "内部系统接口调用异常"),
