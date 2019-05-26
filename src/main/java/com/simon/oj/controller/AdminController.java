@@ -24,13 +24,20 @@ public class AdminController {
 
     @GetMapping
     public Result getAdminById(@RequestParam("id") String id) {
-        Admin admin = adminService.findAdminById(id);
-        if(admin!=null){
-            return Result.success(admin);
-        }else {
-            return Result.failure(ResultCode.RESULE_DATA_NONE);
+        Result result = new Result();
+        try{
+            Admin admin = adminService.findAdminById(id);
+            if(admin!=null){
+                result.setResultCode(ResultCode.SUCCESS);
+                result.setData(admin);
+            }else {
+                result.setResultCode(ResultCode.RESULE_DATA_NONE);
+            }
+        }catch (Exception e){
+            System.out.println(e);
+            result.setResultCode(ResultCode.DATA_RETRIEVE_WRONG);
         }
-
+        return  result;
     }
 
     @PutMapping
@@ -66,7 +73,7 @@ public class AdminController {
             if (t != 0) {
                  result.setResultCode(ResultCode.SUCCESS);
             } else {
-                 result.setResultCode(ResultCode.DATA_INSERT_WRONG);//这个判断似乎没啥用
+                 result.setResultCode(ResultCode.DATA_INSERT_WRONG);//好像不必要
             }
         } catch (DataAccessException e) {
             System.out.println(e.toString());
