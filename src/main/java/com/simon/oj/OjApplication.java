@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-//@MapperScan("com.simon.oj.dao")
+@MapperScan("com.simon.oj.dao")
 public class OjApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {

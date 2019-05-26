@@ -1,6 +1,8 @@
 package com.simon.oj.service.impl;
 
+import com.simon.oj.dao.ProblemMapper;
 import com.simon.oj.pojo.Problem;
+import com.simon.oj.pojo.ProblemExample;
 import com.simon.oj.service.IProblemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,7 +12,7 @@ import java.util.List;
 @Service
 public class ProblemServiceImpl implements IProblemService {
     @Autowired
-    IProblemDao problemDao;
+    ProblemMapper problemMapper;
 
     @Override
     public int add(Problem problem) {
@@ -34,6 +36,6 @@ public class ProblemServiceImpl implements IProblemService {
 
     @Override
     public List<Problem> findProblemList() {
-        return problemDao.findProblemList();
+        return problemMapper.selectByExample(new ProblemExample());
     }
 }
