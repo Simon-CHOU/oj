@@ -1,7 +1,7 @@
 package com.simon.oj.dao.impl;
 
 import com.simon.oj.dao.IProblemDao;
-import com.simon.oj.model.Problem;
+import com.simon.oj.pojo.Problem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;

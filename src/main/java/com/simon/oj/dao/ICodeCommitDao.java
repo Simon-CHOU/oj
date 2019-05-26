@@ -1,6 +1,6 @@
 package com.simon.oj.dao;
 
-import com.simon.oj.model.CodeCommit;
+import com.simon.oj.pojo.CodeCommit;
 
 import java.util.List;
 

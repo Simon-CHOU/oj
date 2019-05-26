@@ -1,22 +1,18 @@
 package com.simon.oj.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.simon.oj.model.CodeCommit;
+import com.simon.oj.pojo.CodeCommit;
 
 import org.apache.commons.io.FileUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import swust.yang.entity.ResultMsg;
-import swust.yang.exception.FileNotCOrCppExcption;
-import swust.yang.exception.FileNotDirectoryException;
 import swust.yang.service.IPlug;
 
 
-import javax.xml.transform.Result;
 import java.io.File;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.net.URLClassLoader;

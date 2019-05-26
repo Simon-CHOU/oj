@@ -1,6 +1,6 @@
 package com.simon.oj.service;
 
-import com.simon.oj.model.Problem;
+import com.simon.oj.pojo.Problem;
 
 import java.util.List;
 

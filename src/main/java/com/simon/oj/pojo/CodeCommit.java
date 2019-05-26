@@ -1,4 +1,4 @@
-package com.simon.oj.model;
+package com.simon.oj.pojo;
 
 public class CodeCommit {
     private Integer problemId;

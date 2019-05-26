@@ -1,7 +1,7 @@
 package com.simon.oj.dao.impl;
 
 import com.simon.oj.dao.ICodeCommitDao;
-import com.simon.oj.model.CodeCommit;
+import com.simon.oj.pojo.CodeCommit;
 
 import java.util.List;
 // TODO

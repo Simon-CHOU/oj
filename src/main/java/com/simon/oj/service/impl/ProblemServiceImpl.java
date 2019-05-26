@@ -1,8 +1,7 @@
 package com.simon.oj.service.impl;
 
 import com.simon.oj.dao.IProblemDao;
-import com.simon.oj.dao.impl.ProblemDaoImpl;
-import com.simon.oj.model.Problem;
+import com.simon.oj.pojo.Problem;
 import com.simon.oj.service.IProblemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
