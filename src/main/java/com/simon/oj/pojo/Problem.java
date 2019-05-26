@@ -1,21 +1,28 @@
 package com.simon.oj.pojo;
 
 public class Problem {
-    private int id;
-    private String title;
-    private String description;
-    private String input;
-    private String output;
-    private Integer committed;
-    private Integer passed;
-    private String [] tag;
+    private Integer idproblem;
 
-    public int getId() {
-        return id;
+    private String title;
+
+    private String description;
+
+    private String input;
+
+    private String output;
+
+    private Integer committed;
+
+    private Integer passed;
+
+    private String tag;
+
+    public Integer getIdproblem() {
+        return idproblem;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdproblem(Integer idproblem) {
+        this.idproblem = idproblem;
     }
 
     public String getTitle() {
@@ -23,7 +30,7 @@ public class Problem {
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        this.title = title == null ? null : title.trim();
     }
 
     public String getDescription() {
@@ -31,7 +38,7 @@ public class Problem {
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.description = description == null ? null : description.trim();
     }
 
     public String getInput() {
@@ -39,7 +46,7 @@ public class Problem {
     }
 
     public void setInput(String input) {
-        this.input = input;
+        this.input = input == null ? null : input.trim();
     }
 
     public String getOutput() {
@@ -47,7 +54,7 @@ public class Problem {
     }
 
     public void setOutput(String output) {
-        this.output = output;
+        this.output = output == null ? null : output.trim();
     }
 
     public Integer getCommitted() {
@@ -66,11 +73,11 @@ public class Problem {
         this.passed = passed;
     }
 
-    public String[] getTag() {
+    public String getTag() {
         return tag;
     }
 
-    public void setTag(String[] tag) {
-        this.tag = tag;
+    public void setTag(String tag) {
+        this.tag = tag == null ? null : tag.trim();
     }
 }

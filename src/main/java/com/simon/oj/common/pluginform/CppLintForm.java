@@ -1,4 +1,4 @@
-package com.simon.oj.pojo.pluginform;
+package com.simon.oj.common.pluginform;
 
 /**
  * Cpplint 前端页面表单对应的实体类

@@ -1,6 +1,5 @@
 package com.simon.oj.service.impl;
 
-import com.simon.oj.dao.IProblemDao;
 import com.simon.oj.pojo.Problem;
 import com.simon.oj.service.IProblemService;
 import org.springframework.beans.factory.annotation.Autowired;

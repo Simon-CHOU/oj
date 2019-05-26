@@ -1,7 +1,6 @@
 package com.simon.oj.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.simon.oj.pojo.CodeCommit;
 
 import org.apache.commons.io.FileUtils;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,39 +32,39 @@ public class CommitHandelController {
             e.printStackTrace();
         }
     }
-    @RequestMapping("/basicCheck")
-    public String BasicCheck(@RequestBody CodeCommit codeCommit){
-
-        //读取配置文件
-        File file=new File("plugin-excute-workshop/lint-config-info.json");
-        String config_str = null;//配置文件JSON字符串
-        try {
-            config_str= FileUtils.readFileToString(file,"UTF-8");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        System.out.println("配置文件JSON字符串："+config_str);
-//        读取配置文件完毕
-
-//        根据配置文件执行检查
-        String file_path = "plugin-excute-workshop\\5120152516.cpp";
-        String log_path = "plugin-excute-workshop\\log";
-        ResultMsg msg = new ResultMsg();
+//    @RequestMapping("/basicCheck")
+//    public String BasicCheck(@RequestBody CodeCommit codeCommit){
+//
+//        //读取配置文件
+//        File file=new File("plugin-excute-workshop/lint-config-info.json");
+//        String config_str = null;//配置文件JSON字符串
 //        try {
-//           msg =  iPlug.singleExecute(config_str,file_path,log_path);
-//        } catch (FileNotFoundException e) {
+//            config_str= FileUtils.readFileToString(file,"UTF-8");
+//        } catch (IOException e) {
 //            e.printStackTrace();
-//        } catch (FileNotDirectoryException e) {
-//            e.printStackTrace();
-//        } catch (FileNotCOrCppExcption fileNotCOrCppExcption) {
-//            fileNotCOrCppExcption.printStackTrace();
 //        }
-        msg.setStudentInfor("5120152525");
-        msg.setScore(100f);
-
-        System.out.println("检查结果："+msg.getStudentInfor()+","+msg.getScore());
-        return JSON.toJSONString(msg);//返回单文件检查结果
-    }
+//        System.out.println("配置文件JSON字符串："+config_str);
+////        读取配置文件完毕
+//
+////        根据配置文件执行检查
+//        String file_path = "plugin-excute-workshop\\5120152516.cpp";
+//        String log_path = "plugin-excute-workshop\\log";
+//        ResultMsg msg = new ResultMsg();
+////        try {
+////           msg =  iPlug.singleExecute(config_str,file_path,log_path);
+////        } catch (FileNotFoundException e) {
+////            e.printStackTrace();
+////        } catch (FileNotDirectoryException e) {
+////            e.printStackTrace();
+////        } catch (FileNotCOrCppExcption fileNotCOrCppExcption) {
+////            fileNotCOrCppExcption.printStackTrace();
+////        }
+//        msg.setStudentInfor("5120152525");
+//        msg.setScore(100f);
+//
+//        System.out.println("检查结果："+msg.getStudentInfor()+","+msg.getScore());
+//        return JSON.toJSONString(msg);//返回单文件检查结果
+//    }
 
 
 }
