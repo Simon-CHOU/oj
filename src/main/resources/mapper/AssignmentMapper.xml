@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.simon.oj.dao.AssignmentMapper">
+  <resultMap id="BaseResultMap" type="com.simon.oj.pojo.Assignment">
+    <id column="idassignment" jdbcType="INTEGER" property="idassignment" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="idteacher" jdbcType="VARCHAR" property="idteacher" />
+    <result column="commence" jdbcType="TIMESTAMP" property="commence" />
+    <result column="deadline" jdbcType="TIMESTAMP" property="deadline" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    idassignment, title, idteacher, commence, deadline, status
+  </sql>
+  <select id="selectByExample" parameterType="com.simon.oj.pojo.AssignmentExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from assignment
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from assignment
+    where idassignment = #{idassignment,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from assignment
+    where idassignment = #{idassignment,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.simon.oj.pojo.AssignmentExample">
+    delete from assignment
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyColumn="idassignment" keyProperty="idassignment" parameterType="com.simon.oj.pojo.Assignment" useGeneratedKeys="true">
+    insert into assignment (title, idteacher, commence, 
+      deadline, status)
+    values (#{title,jdbcType=VARCHAR}, #{idteacher,jdbcType=VARCHAR}, #{commence,jdbcType=TIMESTAMP}, 
+      #{deadline,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="idassignment" keyProperty="idassignment" parameterType="com.simon.oj.pojo.Assignment" useGeneratedKeys="true">
+    insert into assignment
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="title != null">
+        title,
+      </if>
+      <if test="idteacher != null">
+        idteacher,
+      </if>
+      <if test="commence != null">
+        commence,
+      </if>
+      <if test="deadline != null">
+        deadline,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="idteacher != null">
+        #{idteacher,jdbcType=VARCHAR},
+      </if>
+      <if test="commence != null">
+        #{commence,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deadline != null">
+        #{deadline,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.simon.oj.pojo.AssignmentExample" resultType="java.lang.Long">
+    select count(*) from assignment
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update assignment
+    <set>
+      <if test="record.idassignment != null">
+        idassignment = #{record.idassignment,jdbcType=INTEGER},
+      </if>
+      <if test="record.title != null">
+        title = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idteacher != null">
+        idteacher = #{record.idteacher,jdbcType=VARCHAR},
+      </if>
+      <if test="record.commence != null">
+        commence = #{record.commence,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.deadline != null">
+        deadline = #{record.deadline,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update assignment
+    set idassignment = #{record.idassignment,jdbcType=INTEGER},
+      title = #{record.title,jdbcType=VARCHAR},
+      idteacher = #{record.idteacher,jdbcType=VARCHAR},
+      commence = #{record.commence,jdbcType=TIMESTAMP},
+      deadline = #{record.deadline,jdbcType=TIMESTAMP},
+      status = #{record.status,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.simon.oj.pojo.Assignment">
+    update assignment
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="idteacher != null">
+        idteacher = #{idteacher,jdbcType=VARCHAR},
+      </if>
+      <if test="commence != null">
+        commence = #{commence,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deadline != null">
+        deadline = #{deadline,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where idassignment = #{idassignment,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.simon.oj.pojo.Assignment">
+    update assignment
+    set title = #{title,jdbcType=VARCHAR},
+      idteacher = #{idteacher,jdbcType=VARCHAR},
+      commence = #{commence,jdbcType=TIMESTAMP},
+      deadline = #{deadline,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=VARCHAR}
+    where idassignment = #{idassignment,jdbcType=INTEGER}
+  </update>
+</mapper>

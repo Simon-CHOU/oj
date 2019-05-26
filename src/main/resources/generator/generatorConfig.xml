@@ -42,8 +42,23 @@
             <!--<generatedKey column="idadmin" sqlStatement="JDBC" identity="true"/>-->
         <!--</table>-->
 
-        <table schema="oj" tableName="problem" >
-            <generatedKey column="idproblem" sqlStatement="JDBC" identity="true"/>
+        <!--<table schema="oj" tableName="problem" >-->
+            <!--<generatedKey column="idproblem" sqlStatement="JDBC" identity="true"/>-->
+        <!--</table>-->
+        <table schema="oj" tableName="class" >
+            <generatedKey column="idclass" sqlStatement="JDBC" identity="true"/>
+        </table>
+        <table schema="oj" tableName="teacher" >
+            <generatedKey column="idteacher" sqlStatement="JDBC" identity="true"/>
+        </table>
+        <table schema="oj" tableName="student" >
+            <generatedKey column="idstudent" sqlStatement="JDBC" identity="true"/>
+        </table>
+        <table schema="oj" tableName="assignment" >
+            <generatedKey column="idassignment" sqlStatement="JDBC" identity="true"/>
+        </table>
+        <table schema="oj" tableName="submit" >
+            <generatedKey column="idsubmit" sqlStatement="JDBC" identity="true"/>
         </table>
 
     </context>
