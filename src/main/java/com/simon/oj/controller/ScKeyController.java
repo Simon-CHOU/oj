@@ -57,8 +57,19 @@ public class ScKeyController {
         return  result;
     }
 
-    @GetMapping
+    @GetMapping(value = "/count")
     public Result countNumOfStudentsByClassUId(@RequestParam(value = "idclass")Integer idclass){
+        //验证key存在
+        List<ScKey> slist = scKeyService.findScKeyList();
+        int flag =0;
+        for (ScKey sci:slist
+        ) {
+            if(idclass.equals(sci.getIdclass())){flag =1;};
+        }
+        if(flag==0){
+            return Result.failure(ResultCode.RESULE_DATA_NONE);//要查找的班级不存在
+        }
+
         Result result = new Result();
         try{
             Long numOfStudent = scKeyService.countNumOfStudentsByClassUId(idclass);
