@@ -1,21 +1,145 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.simon.oj.dao.ApMapper">
-  <resultMap id="BaseResultMap" type="com.simon.oj.pojo.Ap">
+  <resultMap id="BaseResultMap" type="com.simon.oj.pojo.ApKey">
     <id column="idassignment" jdbcType="INTEGER" property="idassignment" />
     <id column="idproblem" jdbcType="INTEGER" property="idproblem" />
   </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="map">
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    idassignment, idproblem
+  </sql>
+  <select id="selectByExample" parameterType="com.simon.oj.pojo.ApExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ap
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.simon.oj.pojo.ApKey">
     delete from ap
     where idassignment = #{idassignment,jdbcType=INTEGER}
       and idproblem = #{idproblem,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.simon.oj.pojo.Ap">
+  <delete id="deleteByExample" parameterType="com.simon.oj.pojo.ApExample">
+    delete from ap
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.simon.oj.pojo.ApKey">
     insert into ap (idassignment, idproblem)
     values (#{idassignment,jdbcType=INTEGER}, #{idproblem,jdbcType=INTEGER})
   </insert>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select idassignment, idproblem
-    from ap
+  <insert id="insertSelective" parameterType="com.simon.oj.pojo.ApKey">
+    insert into ap
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="idassignment != null">
+        idassignment,
+      </if>
+      <if test="idproblem != null">
+        idproblem,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="idassignment != null">
+        #{idassignment,jdbcType=INTEGER},
+      </if>
+      <if test="idproblem != null">
+        #{idproblem,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.simon.oj.pojo.ApExample" resultType="java.lang.Long">
+    select count(*) from ap
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
   </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update ap
+    <set>
+      <if test="record.idassignment != null">
+        idassignment = #{record.idassignment,jdbcType=INTEGER},
+      </if>
+      <if test="record.idproblem != null">
+        idproblem = #{record.idproblem,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update ap
+    set idassignment = #{record.idassignment,jdbcType=INTEGER},
+      idproblem = #{record.idproblem,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
 </mapper>

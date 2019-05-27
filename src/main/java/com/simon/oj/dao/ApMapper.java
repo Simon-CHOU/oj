@@ -1,13 +1,24 @@
 package com.simon.oj.dao;
 
-import com.simon.oj.pojo.Ap;
+import com.simon.oj.pojo.ApExample;
+import com.simon.oj.pojo.ApKey;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface ApMapper {
-    int deleteByPrimaryKey(@Param("idassignment") Integer idassignment, @Param("idproblem") Integer idproblem);
+    long countByExample(ApExample example);
 
-    int insert(Ap record);
+    int deleteByExample(ApExample example);
 
-    List<Ap> selectAll();
+    int deleteByPrimaryKey(ApKey key);
+
+    int insert(ApKey record);
+
+    int insertSelective(ApKey record);
+
+    List<ApKey> selectByExample(ApExample example);
+
+    int updateByExampleSelective(@Param("record") ApKey record, @Param("example") ApExample example);
+
+    int updateByExample(@Param("record") ApKey record, @Param("example") ApExample example);
 }

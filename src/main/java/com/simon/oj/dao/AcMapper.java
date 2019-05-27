@@ -1,13 +1,24 @@
 package com.simon.oj.dao;
 
-import com.simon.oj.pojo.Ac;
+import com.simon.oj.pojo.AcExample;
+import com.simon.oj.pojo.AcKey;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface AcMapper {
-    int deleteByPrimaryKey(@Param("idassignment") Integer idassignment, @Param("idclass") Integer idclass);
+    long countByExample(AcExample example);
 
-    int insert(Ac record);
+    int deleteByExample(AcExample example);
 
-    List<Ac> selectAll();
+    int deleteByPrimaryKey(AcKey key);
+
+    int insert(AcKey record);
+
+    int insertSelective(AcKey record);
+
+    List<AcKey> selectByExample(AcExample example);
+
+    int updateByExampleSelective(@Param("record") AcKey record, @Param("example") AcExample example);
+
+    int updateByExample(@Param("record") AcKey record, @Param("example") AcExample example);
 }

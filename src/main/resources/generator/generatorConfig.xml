@@ -40,21 +40,22 @@
         <!--<table schema="oj" tableName="admin">-->
             <!--<property name="selectAllOrderByClause" value="idadmin asc"/>-->
         <!--</table>-->
-        <!--<table schema="oj" tableName="sc">-->
-        <!--</table>-->
-        <!--<table schema="oj" tableName="ac">-->
-        <!--</table>-->
-        <!--<table schema="oj" tableName="ap">-->
-        <!--</table>-->
         <!--以上的使用MyBatis3Simple生成无Example的Dao-->
         <!--以下的使用MyBatis3生成有Example的Dao-->
+        <!--即除了Admin都有Eaxmple，避免SQL不够用-->
+        <table schema="oj" tableName="sc">
+        </table>
+        <table schema="oj" tableName="ac">
+        </table>
+        <table schema="oj" tableName="ap">
+        </table>
         <!--<table schema="oj" tableName="problem" >-->
             <!--<generatedKey column="idproblem" sqlStatement="JDBC" identity="true"/>-->
         <!--</table>-->
         <!--为了避免class表名和java class关键字冲突，设置实体类为ClassU-->
-        <table schema="oj" tableName="class" domainObjectName="ClassU" >
-            <generatedKey column="idclass" sqlStatement="JDBC" identity="true"/>
-        </table>
+        <!--<table schema="oj" tableName="class" domainObjectName="ClassU" >-->
+            <!--<generatedKey column="idclass" sqlStatement="JDBC" identity="true"/>-->
+        <!--</table>-->
         <!--<table schema="oj" tableName="teacher" >-->
         <!--</table>-->
         <!--<table schema="oj" tableName="student" >-->

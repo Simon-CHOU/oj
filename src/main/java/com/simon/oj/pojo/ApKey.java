@@ -1,6 +1,6 @@
 package com.simon.oj.pojo;
 
-public class Ap {
+public class ApKey {
     private Integer idassignment;
 
     private Integer idproblem;

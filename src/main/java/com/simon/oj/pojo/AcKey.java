@@ -1,6 +1,6 @@
 package com.simon.oj.pojo;
 
-public class Ac {
+public class AcKey {
     private Integer idassignment;
 
     private Integer idclass;

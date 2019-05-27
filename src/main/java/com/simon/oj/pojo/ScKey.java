@@ -1,6 +1,6 @@
 package com.simon.oj.pojo;
 
-public class Sc {
+public class ScKey {
     private Integer idclass;
 
     private String idstudent;
