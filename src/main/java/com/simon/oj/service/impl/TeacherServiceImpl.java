@@ -3,7 +3,7 @@ package com.simon.oj.service.impl;
 import com.simon.oj.dao.TeacherMapper;
 import com.simon.oj.pojo.Teacher;
 import com.simon.oj.pojo.TeacherExample;
-import com.simon.oj.service.ITeacher;
+import com.simon.oj.service.ITeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class TeacherServiceImpl implements ITeacher {
+public class TeacherServiceImpl implements ITeacherService {
     @Autowired
     private TeacherMapper teacherMapper;
 
