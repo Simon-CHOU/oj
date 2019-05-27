@@ -62,16 +62,8 @@ public class AcKeyController {
     @GetMapping(value = "/count")
     public Result countNumOfAssignmentsByClassUId(@RequestParam(value = "idclass") Integer idclass) {
         //验证key存在
-        List<AcKey> aclist = acKeyService.findAcKeyList();
-        int flag = 0;
-        for (AcKey aci : aclist
-        ) {
-            if (idclass.equals(aci.getIdclass())) {
-                flag = 1;
-            }
-            ;
-        }
-        if (flag == 0) {
+        List<AcKey> aclist = acKeyService.findAcKeysByCid(idclass);
+        if (aclist.isEmpty()) {
             return Result.failure(ResultCode.RESULE_DATA_NONE);//要查找的班级不存在
         }
 
