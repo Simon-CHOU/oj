@@ -2,7 +2,7 @@ package com.simon.oj.pojo;
 
 import java.util.Date;
 
-public class Class {
+public class ClassU {
     private Integer idclass;
 
     private String classname;

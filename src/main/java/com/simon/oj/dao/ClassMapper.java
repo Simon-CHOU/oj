@@ -1,6 +1,6 @@
 package com.simon.oj.dao;
 
-import com.simon.oj.pojo.Class;
+import com.simon.oj.pojo.ClassU;
 import com.simon.oj.pojo.ClassExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
@@ -12,19 +12,19 @@ public interface ClassMapper {
 
     int deleteByPrimaryKey(Integer idclass);
 
-    int insert(Class record);
+    int insert(ClassU record);
 
-    int insertSelective(Class record);
+    int insertSelective(ClassU record);
 
-    List<Class> selectByExample(ClassExample example);
+    List<ClassU> selectByExample(ClassExample example);
 
-    Class selectByPrimaryKey(Integer idclass);
+    ClassU selectByPrimaryKey(Integer idclass);
 
-    int updateByExampleSelective(@Param("record") Class record, @Param("example") ClassExample example);
+    int updateByExampleSelective(@Param("record") ClassU record, @Param("example") ClassExample example);
 
-    int updateByExample(@Param("record") Class record, @Param("example") ClassExample example);
+    int updateByExample(@Param("record") ClassU record, @Param("example") ClassExample example);
 
-    int updateByPrimaryKeySelective(Class record);
+    int updateByPrimaryKeySelective(ClassU record);
 
-    int updateByPrimaryKey(Class record);
+    int updateByPrimaryKey(ClassU record);
 }

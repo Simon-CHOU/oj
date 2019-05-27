@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.simon.oj.dao.ClassMapper">
-  <resultMap id="BaseResultMap" type="com.simon.oj.pojo.Class">
+  <resultMap id="BaseResultMap" type="com.simon.oj.pojo.ClassU">
     <id column="idclass" jdbcType="INTEGER" property="idclass" />
     <result column="classname" jdbcType="VARCHAR" property="classname" />
     <result column="idteacher" jdbcType="VARCHAR" property="idteacher" />
@@ -102,7 +102,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" keyColumn="idclass" keyProperty="idclass" parameterType="com.simon.oj.pojo.Class" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="idclass" keyProperty="idclass" parameterType="com.simon.oj.pojo.ClassU" useGeneratedKeys="true">
     insert into class (classname, idteacher, semester, 
       stu_amount, opendate, closedate, 
       status)
@@ -110,7 +110,7 @@
       #{stuAmount,jdbcType=INTEGER}, #{opendate,jdbcType=TIMESTAMP}, #{closedate,jdbcType=TIMESTAMP}, 
       #{status,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" keyColumn="idclass" keyProperty="idclass" parameterType="com.simon.oj.pojo.Class" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="idclass" keyProperty="idclass" parameterType="com.simon.oj.pojo.ClassU" useGeneratedKeys="true">
     insert into class
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="classname != null">
@@ -211,7 +211,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.simon.oj.pojo.Class">
+  <update id="updateByPrimaryKeySelective" parameterType="com.simon.oj.pojo.ClassU">
     update class
     <set>
       <if test="classname != null">
@@ -238,7 +238,7 @@
     </set>
     where idclass = #{idclass,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.simon.oj.pojo.Class">
+  <update id="updateByPrimaryKey" parameterType="com.simon.oj.pojo.ClassU">
     update class
     set classname = #{classname,jdbcType=VARCHAR},
       idteacher = #{idteacher,jdbcType=VARCHAR},
