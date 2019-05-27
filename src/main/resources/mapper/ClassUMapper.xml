@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.simon.oj.dao.ClassMapper">
+<mapper namespace="com.simon.oj.dao.ClassUMapper">
   <resultMap id="BaseResultMap" type="com.simon.oj.pojo.ClassU">
     <id column="idclass" jdbcType="INTEGER" property="idclass" />
     <result column="classname" jdbcType="VARCHAR" property="classname" />
@@ -72,7 +72,7 @@
   <sql id="Base_Column_List">
     idclass, classname, idteacher, semester, stu_amount, opendate, closedate, status
   </sql>
-  <select id="selectByExample" parameterType="com.simon.oj.pojo.ClassExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.simon.oj.pojo.ClassUExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -96,7 +96,7 @@
     delete from class
     where idclass = #{idclass,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.simon.oj.pojo.ClassExample">
+  <delete id="deleteByExample" parameterType="com.simon.oj.pojo.ClassUExample">
     delete from class
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -159,7 +159,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.simon.oj.pojo.ClassExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.simon.oj.pojo.ClassUExample" resultType="java.lang.Long">
     select count(*) from class
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

@@ -51,13 +51,14 @@
         <!--<table schema="oj" tableName="problem" >-->
             <!--<generatedKey column="idproblem" sqlStatement="JDBC" identity="true"/>-->
         <!--</table>-->
-        <!--<table schema="oj" tableName="class" >-->
-            <!--<generatedKey column="idclass" sqlStatement="JDBC" identity="true"/>-->
+        <!--为了避免class表名和java class关键字冲突，设置实体类为ClassU-->
+        <table schema="oj" tableName="class" domainObjectName="ClassU" >
+            <generatedKey column="idclass" sqlStatement="JDBC" identity="true"/>
+        </table>
+        <!--<table schema="oj" tableName="teacher" >-->
         <!--</table>-->
-        <table schema="oj" tableName="teacher" >
-        </table>
-        <table schema="oj" tableName="student" >
-        </table>
+        <!--<table schema="oj" tableName="student" >-->
+        <!--</table>-->
         <!--注意教师和学生的id是字符串，不递增，无generatedKey-->
         <!--<table schema="oj" tableName="assignment" >-->
             <!--<generatedKey column="idassignment" sqlStatement="JDBC" identity="true"/>-->
