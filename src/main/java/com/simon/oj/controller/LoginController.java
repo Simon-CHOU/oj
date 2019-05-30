@@ -69,7 +69,8 @@ public class LoginController {
         String username = JWTUtil.getUsername(token);//从Token中分离用户名
         //根据用户名查到role
         List<String> roles = new ArrayList<>();
-        roles.add("editor");
+        String role = userService.getRole(username);
+        roles.add(role);
         UserInfoVo userInfoVo = new UserInfoVo();
         //设置角色
         userInfoVo.setRoles(roles);
