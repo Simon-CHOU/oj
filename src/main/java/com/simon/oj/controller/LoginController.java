@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.simon.oj.comm.Result;
 import com.simon.oj.comm.ResultCode;
 import com.simon.oj.dto.UsernamePasswordPairDto;
+import com.simon.oj.service.impl.StudentServiceImpl;
 import com.simon.oj.service.impl.UserServiceImpl;
 import com.simon.oj.util.JWTUtil;
 import com.simon.oj.vo.UserInfoVo;
@@ -27,6 +28,8 @@ import java.util.List;
 public class LoginController {
     @Autowired
     private UserServiceImpl userService;
+    @Autowired
+    private StudentServiceImpl studentService;
 //    private final ResultMap resultMap;
 
 //    @Autowired
@@ -39,7 +42,7 @@ public class LoginController {
     public Result login(@RequestBody String UsernamePasswordPair) {
         UsernamePasswordPairDto userLogInfo = JSON.parseObject(UsernamePasswordPair, UsernamePasswordPairDto.class);
         String password = userLogInfo.getPassword();
-        String username =userLogInfo.getUsername();
+        String username = userLogInfo.getUsername();
         //@RequestParam("username") String username,
         //                           @RequestParam("password") String password
         String realPassword = userService.getPassword(username);
@@ -62,7 +65,7 @@ public class LoginController {
 //    }
 
     @PostMapping(value = "/user/info")
-    public Result getUserInfo(@RequestParam(value = "token")String token){
+    public Result getUserInfo(@RequestParam(value = "token") String token) {
         String username = JWTUtil.getUsername(token);//从Token中分离用户名
         //根据用户名查到role
         List<String> roles = new ArrayList<>();
@@ -86,7 +89,29 @@ public class LoginController {
     }
 
     @PostMapping(value = "/logout")
-    public Result logOut(){
+    public Result logOut() {
         return Result.success();
+    }
+
+    // 学生注册，本质上和 StudentConotroller 中的 Add 方法是一样的
+    @PostMapping("/register")
+    public Result registerStu(@RequestBody String UsernamePasswordPair) {
+        UsernamePasswordPairDto userLogInfo = JSON.parseObject(UsernamePasswordPair, UsernamePasswordPairDto.class);
+        String password = userLogInfo.getPassword();
+        String username = userLogInfo.getUsername();
+        Result result = new Result();
+        //先验证要注册的学生用户名没有与教师和管理员重复
+        if (!userService.isUsernameDuplicate(username)) {
+            try {
+                int t = studentService.add(username, password);
+                result.setResultCode(ResultCode.SUCCESS);
+            } catch (Exception e) {
+                System.out.println(e);
+                result.setResultCode(ResultCode.DATA_INSERT_WRONG);
+            }
+        }else{
+            result.setResultCode(ResultCode.USER_HAS_EXISTED);
+        }
+        return result;
     }
 }

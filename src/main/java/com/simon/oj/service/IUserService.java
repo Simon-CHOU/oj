@@ -60,5 +60,13 @@ public interface IUserService {
      */
     String getName(String username);
 
+    /**
+     * 判断用户名是否重复，如果重复返回true     *
+    * @param username
+     * @return
+     */
+    Boolean isUsernameDuplicate(String username); // 学生注册、教师新增时用来保证三种角色的用户名各不相同
+    //因为注册时，认为三种角色都是User，id是不同的，
+    //学生、教师管理员三张表验证到一个id，就算登录
 
 }
