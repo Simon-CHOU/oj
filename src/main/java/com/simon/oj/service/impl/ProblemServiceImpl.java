@@ -1,7 +1,5 @@
 package com.simon.oj.service.impl;
 
-import com.simon.oj.common.Result;
-import com.simon.oj.common.ResultCode;
 import com.simon.oj.dao.ProblemMapper;
 import com.simon.oj.pojo.Problem;
 import com.simon.oj.pojo.ProblemExample;

@@ -1,4 +1,4 @@
-package com.simon.oj.common.statistics.basic;
+package com.simon.oj.comm.statistics.basic;
 
 import java.util.List;
 

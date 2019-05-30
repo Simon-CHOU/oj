@@ -1,6 +1,6 @@
 package com.simon.oj.controller;
-import com.simon.oj.common.Result;
-import com.simon.oj.common.ResultCode;
+import com.simon.oj.comm.Result;
+import com.simon.oj.comm.ResultCode;
 import com.simon.oj.pojo.ClassU;
 import com.simon.oj.service.impl.ClassUServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;

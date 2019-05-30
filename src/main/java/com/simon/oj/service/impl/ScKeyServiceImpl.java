@@ -1,7 +1,5 @@
 package com.simon.oj.service.impl;
 
-import com.simon.oj.common.Result;
-import com.simon.oj.common.ResultCode;
 import com.simon.oj.dao.ScMapper;
 import com.simon.oj.pojo.ScExample;
 import com.simon.oj.pojo.ScKey;

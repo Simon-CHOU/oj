@@ -1,4 +1,4 @@
-package com.simon.oj.common;
+package com.simon.oj.comm;
 
 import lombok.Data;
 

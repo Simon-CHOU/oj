@@ -1,10 +1,9 @@
 package com.simon.oj.controller;
 
-import com.simon.oj.common.Result;
-import com.simon.oj.common.ResultCode;
+import com.simon.oj.comm.Result;
+import com.simon.oj.comm.ResultCode;
 import com.simon.oj.pojo.Problem;
 import com.simon.oj.service.impl.ProblemServiceImpl;
-import com.sun.org.apache.regexp.internal.RE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,8 +1,8 @@
 package com.simon.oj.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.simon.oj.common.Result;
-import com.simon.oj.common.ResultCode;
+import com.simon.oj.comm.Result;
+import com.simon.oj.comm.ResultCode;
 import com.simon.oj.dto.AssignmentClassListDto;
 import com.simon.oj.pojo.AcKey;
 import com.simon.oj.service.impl.AcKeyServiceImpl;
