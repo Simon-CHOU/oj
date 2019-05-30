@@ -43,4 +43,9 @@ public class TeacherServiceImpl implements ITeacherService {
     public Integer delete(String id) throws DataAccessException {
         return teacherMapper.deleteByPrimaryKey(id);
     }
+
+    @Override
+    public String getPasswordByName(String uesrname) {
+        return teacherMapper.selectByPrimaryKey(uesrname).getPassword();
+    }
 }
