@@ -24,4 +24,11 @@ public interface IAssignmentService {
      * @return
      */
     List<AssignmentVo> findAssignmentVoList();
+
+    /**
+     * 根据学生姓名查找学生所在班级下发的作业列表
+     * @param idstudent
+     * @return
+     */
+    List<AssignmentVo> getAssignmentsVoByStuId(String idstudent);
 }

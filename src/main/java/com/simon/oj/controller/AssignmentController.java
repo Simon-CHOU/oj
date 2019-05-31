@@ -4,6 +4,8 @@ import com.simon.oj.comm.Result;
 import com.simon.oj.comm.ResultCode;
 import com.simon.oj.pojo.Assignment;
 import com.simon.oj.service.impl.AssignmentServiceImpl;
+import com.simon.oj.service.impl.ClassUServiceImpl;
+import com.simon.oj.util.JWTUtil;
 import com.simon.oj.vo.AssignmentVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -113,6 +115,32 @@ public class AssignmentController {
         Result result = new Result();
         try {
             List<AssignmentVo> avolist  = assignmentService.findAssignmentVoList();
+            if (avolist == null){
+                result.setResultCode(ResultCode.DATA_RETRIEVE_WRONG);//查找异常
+            }else if(avolist.isEmpty()){
+                result.setResultCode(ResultCode.RESULE_DATA_NONE);//没找到
+            }else{
+                result.setResultCode(ResultCode.SUCCESS);//找到了
+                result.setData(avolist);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+            result.setResultCode(ResultCode.DATA_UPDATE_WRONG);
+        }
+        return result;
+    }
+
+    /**
+     *  学生查询自己坐在班级已经收到的作业
+     * @param token 学生的token 包含学生用户名
+     * @return
+     */
+    @PostMapping(value = "/list/stu")
+    public Result getAssignmentsVoByStuToken(@RequestParam(value="token")String token){
+        String stuUsername = JWTUtil.getUsername(token);//从Token中分离学生用户名
+        Result result = new Result();
+        try {
+            List<AssignmentVo> avolist  = assignmentService.getAssignmentsVoByStuId(stuUsername);
             if (avolist == null){
                 result.setResultCode(ResultCode.DATA_RETRIEVE_WRONG);//查找异常
             }else if(avolist.isEmpty()){
