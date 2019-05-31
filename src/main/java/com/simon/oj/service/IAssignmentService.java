@@ -1,6 +1,7 @@
 package com.simon.oj.service;
 
 import com.simon.oj.pojo.Assignment;
+import com.simon.oj.vo.AssignmentClassVo;
 import com.simon.oj.vo.AssignmentVo;
 import org.springframework.stereotype.Service;
 
@@ -31,4 +32,11 @@ public interface IAssignmentService {
      * @return
      */
     List<AssignmentVo> getAssignmentsVoByStuId(String idstudent);
+
+    /**
+     * 根据教师的id查找该教师下发的作业列表，作业包含派发的班级
+     * @param idteacher
+     * @return
+     */
+    List<AssignmentClassVo> getAssignmentsClassVoByTeaId(String idteacher);
 }

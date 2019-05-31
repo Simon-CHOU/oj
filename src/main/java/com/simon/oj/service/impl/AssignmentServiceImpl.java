@@ -2,11 +2,9 @@ package com.simon.oj.service.impl;
 
 import com.simon.oj.dao.AssignmentMapper;
 import com.simon.oj.dao.TeacherMapper;
-import com.simon.oj.pojo.AcKey;
-import com.simon.oj.pojo.Assignment;
-import com.simon.oj.pojo.AssignmentExample;
-import com.simon.oj.pojo.ScKey;
+import com.simon.oj.pojo.*;
 import com.simon.oj.service.IAssignmentService;
+import com.simon.oj.vo.AssignmentClassVo;
 import com.simon.oj.vo.AssignmentVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -26,6 +24,8 @@ public class AssignmentServiceImpl implements IAssignmentService {
     private ScKeyServiceImpl scKeyService;
     @Autowired
     private AcKeyServiceImpl acKeyService;
+    @Autowired
+    private ClassUServiceImpl classUService;
 
     @Override
     public Assignment findAssignmentById(Integer id)  throws DataAccessException {
@@ -102,5 +102,37 @@ public class AssignmentServiceImpl implements IAssignmentService {
             }
         }
         return avolist;
+    }
+
+
+    @Override
+    public List<AssignmentClassVo> getAssignmentsClassVoByTeaId(String idteacher) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        AssignmentExample example = new AssignmentExample();
+        AssignmentExample.Criteria criteria = example.createCriteria();
+        criteria.andIdteacherEqualTo(idteacher);
+        List<Assignment> alist = assignmentMapper.selectByExample(example);
+        List<AssignmentClassVo> asvlist = new ArrayList<>();
+        for (Assignment i:alist
+             ) {
+            AssignmentClassVo temp = new AssignmentClassVo();
+            temp.setIdassignment(i.getIdassignment());
+            temp.setTitle(i.getTitle());
+            temp.setCommence(sdf.format(i.getCommence()));
+            temp.setDeadline(sdf.format(i.getDeadline()));
+            temp.setStatus(i.getStatus());
+            //在ac表中查询班级id列表
+             List<AcKey> aclist =  acKeyService.findAcKeysByAid(i.getIdassignment());
+             List<String> classNameList = new ArrayList<>();
+            for (AcKey j: aclist
+                 ) {
+                Integer idclass = j.getIdclass();
+                ClassU classU = classUService.findClassUById(idclass);//找到一个班级
+                classNameList.add(classU.getClassname());
+            }
+            temp.setClassNames(classNameList);//将班级名赋值，至此赋值完毕
+            asvlist.add(temp);//将赋值好的临时变量加入将要返回的vo列表
+        }
+        return asvlist;
     }
 }

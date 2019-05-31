@@ -6,6 +6,7 @@ import com.simon.oj.pojo.Assignment;
 import com.simon.oj.service.impl.AssignmentServiceImpl;
 import com.simon.oj.service.impl.ClassUServiceImpl;
 import com.simon.oj.util.JWTUtil;
+import com.simon.oj.vo.AssignmentClassVo;
 import com.simon.oj.vo.AssignmentVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -148,6 +149,32 @@ public class AssignmentController {
             }else{
                 result.setResultCode(ResultCode.SUCCESS);//找到了
                 result.setData(avolist);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+            result.setResultCode(ResultCode.DATA_UPDATE_WRONG);
+        }
+        return result;
+    }
+
+    /**
+     * 根据教师Id查询教师发布到所有班级的作业
+     * @param token
+     * @return
+     */
+    @PostMapping(value = "/list/tea")
+    public Result getAssignmentsClassVoByTeaToken(@RequestParam(value="token")String token){
+        String teaUsername = JWTUtil.getUsername(token);//从Token中分离教师用户名
+        Result result = new Result();
+        try {
+            List<AssignmentClassVo> acvolist  = assignmentService.getAssignmentsClassVoByTeaId(teaUsername);
+            if (acvolist == null){
+                result.setResultCode(ResultCode.DATA_RETRIEVE_WRONG);//查找异常
+            }else if(acvolist.isEmpty()){
+                result.setResultCode(ResultCode.RESULE_DATA_NONE);//没找到
+            }else{
+                result.setResultCode(ResultCode.SUCCESS);//找到了
+                result.setData(acvolist);
             }
         } catch (Exception e) {
             System.out.println(e);
