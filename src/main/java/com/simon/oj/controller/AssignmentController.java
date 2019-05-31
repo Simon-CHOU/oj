@@ -4,6 +4,7 @@ import com.simon.oj.comm.Result;
 import com.simon.oj.comm.ResultCode;
 import com.simon.oj.pojo.Assignment;
 import com.simon.oj.service.impl.AssignmentServiceImpl;
+import com.simon.oj.vo.AssignmentVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +16,11 @@ public class AssignmentController {
     @Autowired
     private AssignmentServiceImpl assignmentService;
 
-    @GetMapping(value = "/list")
+    /**
+     * 返回作业数据表的原始内容
+     * @return
+     */
+    @GetMapping(value = "/listraw")
     public Result getAssignments() {
         return Result.success(assignmentService.findAssignmentList());
     }
@@ -92,6 +97,30 @@ public class AssignmentController {
         try {
             int t = assignmentService.update(assignment);
             result.setResultCode(ResultCode.SUCCESS);
+        } catch (Exception e) {
+            System.out.println(e);
+            result.setResultCode(ResultCode.DATA_UPDATE_WRONG);
+        }
+        return result;
+    }
+
+    /**
+     * 获取作业列表，外键id字段查询出来，供前端显示
+     * @return
+     */
+    @GetMapping(value = "/list")
+    public Result getAssignmentsVo(){
+        Result result = new Result();
+        try {
+            List<AssignmentVo> avolist  = assignmentService.findAssignmentVoList();
+            if (avolist == null){
+                result.setResultCode(ResultCode.DATA_RETRIEVE_WRONG);//查找异常
+            }else if(avolist.isEmpty()){
+                result.setResultCode(ResultCode.RESULE_DATA_NONE);//没找到
+            }else{
+                result.setResultCode(ResultCode.SUCCESS);//找到了
+                result.setData(avolist);
+            }
         } catch (Exception e) {
             System.out.println(e);
             result.setResultCode(ResultCode.DATA_UPDATE_WRONG);
