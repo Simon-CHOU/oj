@@ -15,9 +15,9 @@ public class AssignmentVo {
 
     private String teacherName; // 数据库中是idteacher
 
-    private Date commence;
+    private String commence;//Date 太精确，只需要到天就可以了
 
-    private Date deadline;
+    private String deadline;
 
     private String status;
 }
