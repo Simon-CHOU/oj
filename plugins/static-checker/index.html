@@ -1,0 +1,30 @@
+<div id="cppcheck">
+    总分
+    <input type="number" name="totalScore" value="" min="1" max="100" placeholder="分数" />
+    <font size="2">/*各检查项分数之和*/</font>
+    <br />
+    启用错误消息(默认开启)
+    <input type="number" name="scoreOfError" value="" min="1" max="100" placeholder="分数" />
+    <font size="2">/*错误消息：代码中的错误项（编译器检查不出来的BUG），如：数组越界、内存泄漏等*/</font>
+    <br />
+    启用警告消息
+    <input type="checkbox" name="checkWarning" value="warning" />
+    <input type="number" name="scoreOfWarning" value="" min="1" max="100" placeholder="分数" />
+    <font size="2">/*警告消息：为了避免产生bug而提供的编程改进意见，如：所写的代码可能出现空指针异常等*/</font>
+    <br />
+    启用风格警告消息
+    <input type="checkbox" name="checkStyle" value="style" />
+    <input type="number" name="scoreOfStyle" value="" min="1" max="100" placeholder="分数" />
+    <font size="2">/*风格警告消息：风格有关问题的代码清理，如：冗余代码、常量性等*/</font>
+    <br />
+    启用可移植性警告消息
+    <input type="checkbox" name="checkPortability" value="portability" />
+    <input type="number" name="scoreOfPortability" value="" min="1" max="100" placeholder="分数" />
+    <font size="2">/*可移植性警告消息：提示跨平台时容易出现的问题，如：64 位的可移植性、不同的编译器中代码运行结果不同等*/</font>
+    <br />
+    启用性能警告消息
+    <input type="checkbox" name="checkPerformance" value="performance">
+    <input type="number" name="scoreOfPerformance" value="" min="1" max="100" placeholder="分数" />
+    <font size="2">性能警告消息：建议可优化的代码（这些建议只是基于常识，即使修复这些消息，也不确定会得到任何可测量的性能提升）；</font>
+    <br />
+  </div>

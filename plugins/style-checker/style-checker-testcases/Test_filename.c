@@ -1,0 +1,3 @@
+class abc{
+ private test();
+}
