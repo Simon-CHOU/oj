@@ -1,2 +1,1 @@
 File,Line,Column,Message,Rule,Rule Url
-D:\Development\IdeaProjects\oj\plugins\style-checker\style-checker-testcases\gccTest.c,3,5,Should provide doxygen style comments in front of function(main).,RULE_5_3_A_provide_doxygen_function_comment_on_function_in_impl,

@@ -1,0 +1,6 @@
+D:\Development\IdeaProjects\oj\plugins\static-checker\static-checker-testcases\5120152516.c(28): error: Array 'foo[2]' accessed at index 2, which is out of bounds.
+D:\Development\IdeaProjects\oj\plugins\static-checker\static-checker-testcases\5120152516.c(29): error: Array 'foo[2]' accessed at index 3, which is out of bounds.
+D:\Development\IdeaProjects\oj\plugins\static-checker\static-checker-testcases\5120152516.c(30): error: Array 'foo[2]' accessed at index 4, which is out of bounds.
+D:\Development\IdeaProjects\oj\plugins\static-checker\static-checker-testcases\5120152516.c(31): error: Array 'foo[2]' accessed at index 5, which is out of bounds.
+D:\Development\IdeaProjects\oj\plugins\static-checker\static-checker-testcases\5120152516.c(56): warning: Either the condition 'fp' is redundant or there is possible null pointer dereference: fp.
+D:\Development\IdeaProjects\oj\plugins\static-checker\static-checker-testcases\5120152516.c(53): error: Resource leak: fp
