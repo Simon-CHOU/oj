@@ -1,0 +1,10 @@
+Total input: 11 files (11 new, 0 old), 123868 tokens
+
+D:\Development\IdeaProjects\oj\plugins\duplicat-checker\duplicat-checker-testcases/5120151234.cpp consists for 100 % of D:\Development\IdeaProjects\oj\plugins\duplicat-checker\duplicat-checker-testcases/a.cpp material
+D:\Development\IdeaProjects\oj\plugins\duplicat-checker\duplicat-checker-testcases/a.cpp consists for 100 % of D:\Development\IdeaProjects\oj\plugins\duplicat-checker\duplicat-checker-testcases/5120151234.cpp material
+D:\Development\IdeaProjects\oj\plugins\duplicat-checker\duplicat-checker-testcases/5120152516c.cpp consists for 100 % of D:\Development\IdeaProjects\oj\plugins\duplicat-checker\duplicat-checker-testcases/5120152516.cpp material
+D:\Development\IdeaProjects\oj\plugins\duplicat-checker\duplicat-checker-testcases/5120152516.cpp consists for 100 % of D:\Development\IdeaProjects\oj\plugins\duplicat-checker\duplicat-checker-testcases/5120152516c.cpp material
+D:\Development\IdeaProjects\oj\plugins\duplicat-checker\duplicat-checker-testcases/5120154444.cpp consists for 99 % of D:\Development\IdeaProjects\oj\plugins\duplicat-checker\duplicat-checker-testcases/ExtendTest.cpp material
+D:\Development\IdeaProjects\oj\plugins\duplicat-checker\duplicat-checker-testcases/ExtendTest.cpp consists for 96 % of D:\Development\IdeaProjects\oj\plugins\duplicat-checker\duplicat-checker-testcases/5120152516.cpp material
+D:\Development\IdeaProjects\oj\plugins\duplicat-checker\duplicat-checker-testcases/kkkk.cpp consists for 86 % of D:\Development\IdeaProjects\oj\plugins\duplicat-checker\duplicat-checker-testcases/kkkk1.cpp material
+D:\Development\IdeaProjects\oj\plugins\duplicat-checker\duplicat-checker-testcases/kkkk1.cpp consists for 85 % of D:\Development\IdeaProjects\oj\plugins\duplicat-checker\duplicat-checker-testcases/kkkk.cpp material
