@@ -1,1 +1,2 @@
 File,Line,Column,Message,Rule,Rule Url
+D:\Development\IdeaProjects\oj\plugins\style-checker\style-checker-testcases\5120151234.cpp,22,6,Do not start function name(Test2) with uppercase,RULE_3_3_A_start_function_name_with_lowercase_unix,
