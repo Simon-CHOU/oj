@@ -1,0 +1,4 @@
+~ RULE_3_3_A_start_function_name_with_lowercase_unix
+~ RULE_5_3_A_provide_doxygen_function_comment_on_function_in_impl
+~ RULE_A_3_avoid_too_deep_block
+~ RULE_4_4_A_do_not_write_over_120_columns_per_line
