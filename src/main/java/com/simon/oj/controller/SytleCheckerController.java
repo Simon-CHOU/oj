@@ -4,7 +4,6 @@ import com.simon.oj.comm.Result;
 import org.springframework.web.bind.annotation.*;
 import swust.yang.entity.ResultMsg;
 import swust.yang.service.IPlug;
-import swust.yang.service.impl.CpplintPlug;
 
 import java.net.URL;
 import java.net.URLClassLoader;
