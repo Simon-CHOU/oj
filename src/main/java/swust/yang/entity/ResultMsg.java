@@ -1,12 +1,12 @@
 package swust.yang.entity;
 
 public class ResultMsg {
-
+	
 	/**
 	 * 学生信息
 	 */
 	private String studentInfo;
-
+	
 	/**
 	 * 作业执行结果
 	 */
@@ -16,14 +16,14 @@ public class ResultMsg {
 	 * 作业执行结果描述,若执行成功返回"OK",反之返回错误描述
 	 */
 	private String message;
-
+	
 	/**
 	 * 作业执行结果代码,执行成功返回0,反之返回-1
 	 */
 	private int code;
-
+	
 	/**
-	 *
+	 * 
 	 * @return 学生信息
 	 */
 	public String getStudentInfo() {
@@ -31,7 +31,7 @@ public class ResultMsg {
 	}
 
 	/**
-	 *
+	 * 
 	 * @param studentInfo 学生信息
 	 */
 	public void setStudentInfo(String studentInfo) {
@@ -39,7 +39,7 @@ public class ResultMsg {
 	}
 
 	/**
-	 *
+	 * 
 	 * @return 作业执行结果
 	 */
 	public String getValue() {
@@ -47,7 +47,7 @@ public class ResultMsg {
 	}
 
 	/**
-	 *
+	 * 
 	 * @param value 执行结果
 	 */
 	public void setValue(String value) {
@@ -55,7 +55,7 @@ public class ResultMsg {
 	}
 
 	/**
-	 *
+	 * 
 	 * @return 作业执行结果描述。若执行成功返回"OK",反之返回错误描述
 	 */
 	public String getMessage() {
@@ -63,7 +63,7 @@ public class ResultMsg {
 	}
 
 	/**
-	 *
+	 * 
 	 * @param message 执行成功设为"OK",反之设为错误描述
 	 */
 	public void setMessage(String message) {
@@ -71,7 +71,7 @@ public class ResultMsg {
 	}
 
 	/**
-	 *
+	 * 
 	 * @return 作业执行结果代码。执行成功返回0,反之返回-1
 	 */
 	public int getCode() {
@@ -79,7 +79,7 @@ public class ResultMsg {
 	}
 
 	/**
-	 *
+	 * 
 	 * @param code 执行成功设为0,反之设为-1
 	 */
 	public void setCode(int code) {

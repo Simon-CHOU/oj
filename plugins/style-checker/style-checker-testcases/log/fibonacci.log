@@ -1,3 +1,9 @@
 File,Line,Column,Message,Rule,Rule Url
-D:\Development\IdeaProjects\oj\plugins\style-checker\style-checker-testcases\fibonacci.cpp,3,5,Should provide doxygen style comments in front of function(fibonacci).,RULE_5_3_A_provide_doxygen_function_comment_on_function_in_impl,
-D:\Development\IdeaProjects\oj\plugins\style-checker\style-checker-testcases\fibonacci.cpp,15,5,Should provide doxygen style comments in front of function(main).,RULE_5_3_A_provide_doxygen_function_comment_on_function_in_impl,
+D:\Development\IdeaProjects\oj\plugins\style-checker\style-checker-testcases\fibonacci.cpp,5,5,Put space before/after word 'if'.,RULE_4_2_A_B_space_around_word,
+D:\Development\IdeaProjects\oj\plugins\style-checker\style-checker-testcases\fibonacci.cpp,5,9,Provide spaces b/w operator '==',RULE_4_2_A_A_space_around_operator,
+D:\Development\IdeaProjects\oj\plugins\style-checker\style-checker-testcases\fibonacci.cpp,5,26,Put space before/after word 'if'.,RULE_4_2_A_B_space_around_word,
+D:\Development\IdeaProjects\oj\plugins\style-checker\style-checker-testcases\fibonacci.cpp,5,36,Provide spaces b/w operator '==',RULE_4_2_A_A_space_around_operator,
+D:\Development\IdeaProjects\oj\plugins\style-checker\style-checker-testcases\fibonacci.cpp,5,89,Provide spaces b/w operator '+',RULE_4_2_A_A_space_around_operator,
+D:\Development\IdeaProjects\oj\plugins\style-checker\style-checker-testcases\fibonacci.cpp,8,11,The brace for function definition should be located in start of line,RULE_4_5_A_braces_for_function_definition_should_be_located_in_seperate_line,
+D:\Development\IdeaProjects\oj\plugins\style-checker\style-checker-testcases\fibonacci.cpp,10,53,The brace for function definition should be located in same column,RULE_4_5_A_braces_for_function_definition_should_be_located_in_seperate_line,
+D:\Development\IdeaProjects\oj\plugins\style-checker\style-checker-testcases\fibonacci.cpp,10,30,Provide spaces b/w operator '<<',RULE_4_2_A_A_space_around_operator,

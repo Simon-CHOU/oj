@@ -7,7 +7,7 @@ import swust.yang.entity.ResultMsg;
 
 public interface IPlug {
 	/**
-	 *
+	 * 
 	 * @description 用于执行单个作业
 	 * @param configInfo 前端返回的配置信息(JSON格式);在PerformPlug中,该参数为编译器(gcc/g++)类型
 	 * @param toolPath   执行所需的外部工具的根目录(绝对路径)
@@ -22,7 +22,7 @@ public interface IPlug {
 	ResultMsg singleExecute(String configInfo, String toolPath, String filePath, String logDir);
 
 	/**
-	 *
+	 * 
 	 * @description 批量执行一个目录下的所有作业
 	 * @param configInfo 前端返回的配置信息(JSON格式)
 	 * @param toolPath   执行所需的外部工具的根目录(绝对路径)
@@ -35,7 +35,7 @@ public interface IPlug {
 	List<ResultMsg> batchExecute(String configInfo, String toolPath, String srcDir, String logDir);
 
 	/**
-	 *
+	 * 
 	 * @description 用于检查前端配置是否符合规范
 	 * @param configInfo 前端返回的配置信息(JSON格式)
 	 * @return 如果配置没有错误,则返回"OK",否则返回错误描述。
@@ -43,7 +43,7 @@ public interface IPlug {
 	String checkConfigInfo(String configInfo);
 
 	/**
-	 *
+	 * 
 	 * @description 获取插件信息
 	 * @return 返回对插件信息的描述：name(插件名)、version(插件版本)、 className(插件接口实现类的路径(包路径+实现类类名))、
 	 *         author(插件开发者)、description(插件功能描述)
@@ -51,7 +51,7 @@ public interface IPlug {
 	PluginInfo getPluginInfo();
 
 	/***
-	 *
+	 * 
 	 * @description 获取插件配置界面
 	 * @param preSetting 之前的配置信息(JSON格式),第一次配置时参数置为null
 	 * @return 返回插件配置前端界面
